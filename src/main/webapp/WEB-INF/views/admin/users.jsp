@@ -30,11 +30,21 @@
 		<tbody>
 			<c:forEach var="user" items="${users}">
 				<tr style="font-size: 13px; font-family: thin">
-					<th scope="col">${user.roleId}</th>
+					<th scope="col">${user.position}</th>
 					<th scope="col">${user.userId}</th>
 					<th scope="col"><fmt:formatDate pattern="dd-MM-yyyy"
 							value="${user.dob}" /></th>
-					<th scope="col">${user.gender}</th>
+					<th scope="col">
+						<c:choose>
+					         <c:when test = "${user.gender == true}">
+					           Nam
+					         </c:when>
+					         <c:otherwise>
+					           Nữ
+					         </c:otherwise>
+					      </c:choose>
+					</th>
+
 					<th scope="col">${user.address}</th>
 					<th scope="col">${user.phoneNumber}</th>
 					<th scope="col">${user.email}</th>
@@ -73,7 +83,7 @@
 					<div class="form-group row">
 						<label for="courses-name" class="col-sm-3 col-form-label">Chức vụ:</label>
 						<div class="col-sm-9">
-							<select class="form-control" name="position" id="position" style="margin-bottom: 0px; float: right;"><!--  position: absolute; float: 0 -->
+							<select class="form-control" name="roleId" id="roleId" style="margin-bottom: 0px; float: right;"><!--  position: absolute; float: 0 -->
 	                             <!-- quyền -->
 	                             <c:forEach var="role" items="${roles}">
 	                                 <option value="${role.roleId}" >${role.roleName}</option>
@@ -98,8 +108,10 @@
 					<div class="form-group row">
 						<label class="col-sm-3 col-form-label">Giới tính</label>
 						<div class="col-sm-9">
-							<input type="text" class="form-control" id="gender"
-								name="gender">
+							<select class="form-control" name="gender" id="gender" style="margin-bottom: 0px; float: right;">
+	                            <option value="1" >Nam</option>
+	                            <option value="0" >Nữ</option>
+	                         </select>
 						</div>
 					</div>
 					<div class="form-group row">
@@ -112,8 +124,8 @@
 					<div class="form-group row">
 						<label class="col-sm-3 col-form-label">Số điện thoại</label>
 						<div class="col-sm-9">
-							<input type="text" class="form-control" id="phonenumber"
-								name="phonenumber">
+							<input type="text" class="form-control" id="phoneNumber"
+								name="phoneNumber">
 						</div>
 					</div>
 					<div class="form-group row">

@@ -6,6 +6,10 @@
         SELECT * FROM ROLE;
     </select>
     
+    <select id="getOne" parameterType="int" resultMap="result">
+        SELECT * FROM ROLE WHERE ROLE_ID = #{id};
+    </select>
+    
     
     <resultMap id = "result" type = "com.mobileshop.model.RoleModel">
        <result property = "roleId" column = "ROLE_ID"/>

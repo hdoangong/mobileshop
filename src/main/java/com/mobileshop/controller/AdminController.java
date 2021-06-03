@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -77,7 +78,7 @@ public class AdminController {
 		return "redirect:/admin/users?message=save-success";
 	}
 	
-	@RequestMapping(value="/books")
+	@GetMapping("/books")
 	public String books(ModelMap modelMap) throws IOException{
 		try {
 			List<BookModel> books = bookService.getAll();

@@ -4,24 +4,24 @@ import java.sql.Date;
 
 public class UserModel {
 	
-	private String userId;//mã nhân viên
-	private String position;//chức vụ
-	private String name;//họ và tên
-	private Date dob;// ngày tháng năm sinh
-	private Boolean gender;//giới tính
-	private String address;//địa chỉ
-	private String phoneNumber;//số điện thoại
+	private String userId;//mÃ£ nhÃ¢n viÃªn
+	private String position;//chá»©c vá»¥
+	private String name;//há»� vÃ  tÃªn
+	private Date dob;// ngÃ y thÃ¡ng nÄƒm sinh
+	private Boolean gender;//giá»›i tÃ­nh
+	private String address;//Ä‘á»‹a chá»‰
+	private String phoneNumber;//sá»‘ Ä‘iá»‡n thoáº¡i
 	private String email;//email
-	private String note;//ghi chú
-	private String pass;//mật khẩu
+	private String note;//ghi chÃº
+	private String pass;//máº­t kháº©u
 	
-	private String roleId;// quyền 0: admin 1: nhân viên 2: người dùng
+	private int roleId;// quyá»�n 0: admin 1: nhÃ¢n viÃªn 2: ngÆ°á»�i dÃ¹ng
 	
 	public UserModel() {
 		super();
 	}
 	public UserModel(String userId, String position, String name, Date dob, Boolean gender, String address,
-			String phoneNumber, String email, String note, String roleId, String pass) {
+			String phoneNumber, String email, String note, int roleId, String pass) {
 		super();
 		this.userId = userId;
 		this.position = position;
@@ -95,10 +95,10 @@ public class UserModel {
 	public void setPass(String pass) {
 		this.note = pass;
 	}
-	public String getRoleId() {
+	public int getRoleId() {
 		return roleId;
 	}
-	public void setRoleId(String roleId) {
+	public void setRoleId(int roleId) {
 		this.roleId = roleId;
 	}
 	@Override

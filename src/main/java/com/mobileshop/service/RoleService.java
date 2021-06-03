@@ -16,5 +16,9 @@ public class RoleService {
 	public List<RoleModel> getAll() throws Exception {
 		return roleMapper.getAll();
 	}
+
+	public RoleModel getRole(int roleId) throws Exception {
+		return roleMapper.getOne(roleId);
+	}
 	
 }

@@ -8,4 +8,6 @@ import com.mobileshop.model.RoleModel;
 
 public interface RoleMapper {
 	public List<RoleModel> getAll() throws Exception;
+
+	public RoleModel getOne(int roleId) throws Exception;
 }
