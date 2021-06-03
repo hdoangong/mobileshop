@@ -13,4 +13,6 @@ public interface UserMapper {
 	public void updateOne(UserModel userModel) throws Exception;
 
 	public void saveOne(UserModel userModel) throws Exception;
+
+	public void deleteOne(String id) throws Exception;
 }

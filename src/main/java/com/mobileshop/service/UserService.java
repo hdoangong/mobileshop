@@ -45,5 +45,10 @@ public class UserService {
 			usersMapper.saveOne(userModel);
 		}
 	}
+
+	@Transactional
+	public void deleteOne(String id) throws Exception {
+		usersMapper.deleteOne(id);
+	}
 	
 }

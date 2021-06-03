@@ -16,6 +16,11 @@
        		VALUES (#{userId}, #{position}, #{name}, #{dob}, #{gender}, #{address}, #{phoneNumber}, #{email}, #{note}, #{roleId})
     </insert>
     
+    <delete id="deleteOne" parameterType="string">
+       	DELETE FROM USER
+    	WHERE USER_ID = #{id}
+    </delete>
+    
      <update id="updateOne" parameterType="com.mobileshop.model.UserModel">
      	UPDATE 
      		USER

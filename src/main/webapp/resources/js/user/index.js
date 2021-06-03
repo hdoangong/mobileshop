@@ -36,4 +36,23 @@ $(document).ready(function() {
         });
     });
 
+	$('.btn-delete-user').click(function() {
+		if(!confirm("Bạn có chắc chắn muốn xoá? ")) {
+			return;
+		}
+        const this2 = $(this);
+        const id = $(this).attr('data');
+        $.ajax({
+            url: `/api/user/${id}`,
+            type: 'DELETE',
+            contentType: 'application/json',
+            dataType: 'json',
+            success: function(result) {
+                if (result) {
+                    this2.closest('tr').remove();
+                }
+            }
+        });
+    });
+
 });
