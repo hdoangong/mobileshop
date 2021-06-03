@@ -49,7 +49,7 @@
 					<th scope="col">${user.phoneNumber}</th>
 					<th scope="col">${user.email}</th>
 					<th scope="col">${user.note}</th>
-					<th><svg xmlns="http://www.w3.org/2000/svg" width="16"
+					<th> <svg data-toggle="modal" data-target="#add-user-modal" class="btn-update-user" data="${user.userId}" xmlns="http://www.w3.org/2000/svg" width="16"
 							height="16" fill="currentColor" class="bi bi-pencil-fill"
 							viewBox="0 0 16 16">
 												  <path

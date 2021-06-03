@@ -44,6 +44,9 @@
 	</div>
 	<script type="text/javascript"
 		src="<c:url value="/resources/templates/admin/main.js" />"></script>
+		
+	<script type="text/javascript"
+		src="<c:url value="/resources/js/user/index.js" />"></script>
 </body>
 
 </html>

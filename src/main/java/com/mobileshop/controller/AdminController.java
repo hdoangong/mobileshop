@@ -67,7 +67,7 @@ public class AdminController {
 		return "admin/products";
 	}
 	
-	@PostMapping("/user")
+	@PostMapping(value = "/user", produces = "application/json;charset=UTF-8")
 	public String saveOrUpdateUser(@ModelAttribute UserModel userModel) {
 		try {
 			userService.saveOrUpdate(userModel); 
