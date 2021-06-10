@@ -52,7 +52,9 @@ $(document).ready(function () {
     });
   });
 
-  $("#btn-save-imgs").on("click", function () {
+  $("#btn-save-product").on("click", function (e) {
+    e.preventDefault();
+
     let form = new FormData();
     let files = document.querySelector("#imgs").files;
 
@@ -73,6 +75,8 @@ $(document).ready(function () {
           if (result.length) {
             const urls = result.join("~");
             $("#imgs-save").val(urls);
+
+            $("#form-product-save").submit();
           }
         },
       });
