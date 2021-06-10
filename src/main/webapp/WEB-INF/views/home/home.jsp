@@ -118,14 +118,14 @@
 																<!-- Front -->
 																<div class="single-profile-front" style="height: 400px;">
 																	<div class="profile-img">
-																		<c:if test="${empty productsNew.avatar}">
+																		<c:if test="${empty productsNewItem.avatar}">
 																			<img style="height: 250px;"
 																				src="<c:url value="/resources/img/1.jpg"/>" alt=""
 																				style="border-radius: 10px;">
 																		</c:if>
-																		<c:if test="${not empty productsNew.avatar}">
+																		<c:if test="${not empty productsNewItem.avatar}">
 																			<img style="height: 250px;"
-																				src="${productsNew.avatar}" alt=""
+																				src="${productsNewItem.avatar}" alt=""
 																				style="border-radius: 10px;">
 																		</c:if>
 																	</div>
