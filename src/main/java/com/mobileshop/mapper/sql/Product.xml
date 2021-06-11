@@ -38,7 +38,9 @@
      		INVENTORY = #{inventory},
      		DESCRIBED = #{described},
      		PRICE = #{price},
-     		MANUFACTURER_NAME = #{manufacturerName}
+     		MANUFACTURER_NAME = #{manufacturerName},
+     		URL_IMG = #{urlImg},
+     		AVATAR = #{avatar}
      	WHERE
      		PRODUCT_ID = #{productId}
      		

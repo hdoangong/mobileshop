@@ -24,7 +24,7 @@
 			<h2 class="card-title" style="color: blue">>Kết quả tìm kiếm</h2>
 			<h3 style="color: blue;"></h3>
 			<div class="row">
-				<c:forEach var="product" items="${productModels}">
+				<c:forEach var="product" items="${products}">
 					<div class="col-xl-3 col-lg-3 col-md-6">
 						<a class="small" href="<c:url value='/product-detail/${product.productId}'/>">
 							<div class="single-profile mb-30"
