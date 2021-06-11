@@ -22,8 +22,8 @@
         SELECT * FROM PRODUCT where 1=1 and INVENTORY >0;
     </select>
     <insert id="saveOne" parameterType="com.mobileshop.model.ProductModel">
-     INSERT INTO PRODUCT (PRODUCT_ID, NAME, TYPE, MANUFACTURER, UNIT, WARRANTY_PERIOD, INVENTORY, DESCRIBED, PRICE, URL_IMG, AVATAR) 
-     VALUES (#{productId},#{name},#{type},#{manufacturer},#{unit},#{warrantyPeriod},#{inventory},#{described},#{price}, #{urlImg}, #{avatar});
+     INSERT INTO PRODUCT (PRODUCT_ID, NAME, TYPE, MANUFACTURER, UNIT, WARRANTY_PERIOD, INVENTORY, DESCRIBED, PRICE, URL_IMG, AVATAR, MANUFACTURER_NAME) 
+     VALUES (#{productId},#{name},#{type},#{manufacturer},#{unit},#{warrantyPeriod},#{inventory},#{described},#{price}, #{urlImg}, #{avatar}, #{manufacturerName});
     </insert>
     
      <update id="updateOne" parameterType="com.mobileshop.model.ProductModel">
@@ -37,7 +37,8 @@
      		WARRANTY_PERIOD = #{warrantyPeriod},
      		INVENTORY = #{inventory},
      		DESCRIBED = #{described},
-     		PRICE = #{price}
+     		PRICE = #{price},
+     		MANUFACTURER_NAME = #{manufacturerName}
      	WHERE
      		PRODUCT_ID = #{productId}
      		
@@ -72,7 +73,7 @@
 	    	</if>
 
 	    	<if test="manufacturer != -1">
-	    		AND MANUFACTURER = #{}
+	    		AND MANUFACTURER = #{manufacturer}
 	    	</if>
 			
     </select>
@@ -89,5 +90,6 @@
        <result property = "price" column = "PRICE"/>
        <result property = "urlImg" column = "URL_IMG"/>
        <result property = "avatar" column = "AVATAR"/>
+       <result property = "manufacturerName" column = "MANUFACTURER_NAME"/>
     </resultMap>
 </mapper>

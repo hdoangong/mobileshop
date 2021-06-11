@@ -24,12 +24,12 @@
 			</div>
 		 </form>
 		
-		<div style="text-align: right;" class="col col-sm-4">
+		<!-- <div style="text-align: right;" class="col col-sm-4">
 			<button type="button" class="btn btn-primary add-user"
 				data-toggle="modal" data-target="#add-book-modal"
 				style="margin-bottom: 2px;">Thêm</button>
 	
-		</div>
+		</div> -->
 	</div>
 
 	<table class="table table-hover table-bordered table-striped"

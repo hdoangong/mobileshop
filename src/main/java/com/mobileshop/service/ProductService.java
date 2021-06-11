@@ -8,12 +8,16 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.mobileshop.dto.SearchDto;
 import com.mobileshop.mapper.ProductMapper;
+import com.mobileshop.model.ManufacturerModel;
 import com.mobileshop.model.ProductModel;
 
 @Service
 public class ProductService {
 	@Autowired
 	ProductMapper productMapper;
+	
+	@Autowired
+	ManufacturerService manufacturerService;
 
 	public List<ProductModel> getAll() throws Exception {
 		return productMapper.getAll();
@@ -44,10 +48,16 @@ public class ProductService {
 			System.out.println("ERROR: Miss Product PK");
 			throw new Exception();
 		}
+		
 		String url = productModel.getUrlImg();
-		if(url != null && !url.isEmpty()) {
+		if (url != null && !url.isEmpty()) {
 			productModel.setAvatar(url.split("~")[0]);
+		} else {
+			productModel.setAvatar("");
 		}
+		
+		ManufacturerModel manufacturerModel = manufacturerService.getById(productModel.getManufacturer());
+		productModel.setManufacturerName(manufacturerModel.getName());
 		
 		ProductModel product = this.getProduct(productModel.getProductId());
 

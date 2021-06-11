@@ -80,6 +80,9 @@ $(document).ready(function () {
           }
         },
       });
+    } else {
+      $("#imgs-save").val("");
+      $("#form-product-save").submit();
     }
   });
 });

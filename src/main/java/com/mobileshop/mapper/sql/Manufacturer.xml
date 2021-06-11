@@ -5,6 +5,10 @@
     <select id="getAll" resultMap="result">
         SELECT * FROM Manufacturer;
     </select>
+
+    <select id="getById" parameterType="int" resultMap="result">
+        SELECT * FROM Manufacturer where id = #{id}
+    </select>
     
     <resultMap id = "result" type = "com.mobileshop.model.ManufacturerModel">
        <result property = "id" column = "ID"/>

@@ -16,4 +16,8 @@ public class ManufacturerService {
 	public List<ManufacturerModel> getAll() throws Exception{
 		return manufacturerMapper.getAll();
 	}
+
+	public ManufacturerModel getById(int manufacturer) {
+		return manufacturerMapper.getById(manufacturer);
+	}
 }

@@ -46,7 +46,6 @@ $(document).ready(function () {
       url: `/api/user/${id}`,
       type: "DELETE",
       contentType: "application/json",
-      dataType: "json",
       success: function (result) {
         if (result) {
           this2.closest("tr").remove();
