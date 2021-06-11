@@ -25,7 +25,7 @@ public class OrderController {
 		}
 		
 		
-		return "redirect:/";
+		return "redirect:/purchase-order";
 	}
 
 }

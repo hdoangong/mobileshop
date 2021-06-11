@@ -22,7 +22,7 @@
 			<div class="col-xl-8 col-lg-8">
 				<h2 class="card-title" style="color: blue;">>Đơn mua</h2>
 				<ul>
-					<c:forEach var="i" begin="1" end="4">
+					<c:forEach var="productInCartDto" items="${productInCartDtos}">
 						<li>
 
 							<div class="row">
@@ -34,7 +34,7 @@
 											<div class="single-profile-front" style="height: 350px;">
 												<div class="profile-img">
 													<img style="height: 300px;"
-														src="<c:url value="/resources/img/1.jpg"/>" alt=""
+														src="${productInCartDto.avatar}" alt=""
 														style="border-radius: 10px;">
 
 												</div>
@@ -48,26 +48,22 @@
 								<div class="col-xl-8 col-lg-8">
 
 									<div class="row" style="margin-bottom: 5px;">
-										<h3 style="color: blue;">Điện thoại iPhone 12 Pro 128GB
-											Xám</h3>
+										<h3 style="color: blue;">${productInCartDto.name}</h3>
 									</div>
 
 									<div class="row" style="background-color: #fafafa;">
-										<h5 style="color: red; margin-right: 50px;">19.990.000 ₫</h5>
-										Giá niêm yết :
-										<h5 style="color: gray;">32.990.000 ₫</h5>
+										<h5 style="color: red; margin-right: 50px;">
+											<fmt:formatNumber value = "${productInCartDto.price}" type = "currency" currencyCode="VND" maxFractionDigits="0"/>
+										</h5>
+										
 									</div>
 									<div class="row"
 										style="background-color: #fafafa; margin-top: 10px;">
-										<p>Bên cạnh biên bản Galaxy Note 20 thường, Samsung còn
-											cho ra mắt Note 20 Ultra 5G cho khả năng kết nối dữ liệu cao
-											cùng thiết kế nguyên khối sang trọng, bắt mắt. Đây sẽ là sự
-											lựa chọn hoàn hảo dành cho bạn để sử dụng mà không bị lỗi
-											thời sau thời gian dài ra mắt.</p>
+										<p>${productInCartDto.described}</p>
 									</div>
 									<div class="row" style="margin-top: 10px;">
-										<label class="col-sm-3 col-form-label">Số lượng</label>
-										<div class="col-sm-3">2</div>
+										<label class="col-sm-3 col-form-label">Số lượng: ${productInCartDto.amount}</label>
+										
 										<div class=" col-xl-6 col-lg-6 col-md-6"
 											style="text-align: right;">
 											<p>
@@ -77,19 +73,16 @@
 										</div>
 									</div>
 									<div style="margin-top: 10px; text-align: right;">
-										<h5 style="color: blue;">Tổng : 4.000.000 vnd</h5>
+										<h5 style="color: blue;">Tổng : <fmt:formatNumber value = "${productInCartDto.prices}" type = "currency" currencyCode="VND" maxFractionDigits="0"/> </h5>
 									</div>
-
-
 								</div>
 							</div>
-
-
 						</li>
 					</c:forEach>
 				</ul>
 
 			</div>
+			
 
 
 			<div class="col-xl-2 col-lg-2"></div>

@@ -15,6 +15,10 @@
     <select id="getBook" resultMap="result" parameterType="map"	>
         select * from BOOK where PRODUCT_ID = #{productId} and USER_ID=#{userId} and TIME = #{time};
     </select>
+
+    <select id="getByUserId" resultMap="result" parameterType="String"	>
+        select * from BOOK where USER_ID = #{userId} ORDER BY TIME DESC;
+    </select>
     
     <insert id="saveOne" parameterType="com.mobileshop.model.BookModel">
     	INSERT INTO BOOK (PRODUCT_ID, USER_ID, TIME, AMOUNT, ADDRESS, PAYMENT_METHODS, NOTE) 

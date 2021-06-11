@@ -15,5 +15,6 @@ public interface BookMapper {
 	public void saveOne(BookModel bookModel)throws Exception;
 	public void deleteOne(Map<String, Object> params);
 	public List<BookTableModel> searchBookTable(String condition) throws Exception;
+	public List<BookModel> getByUserId(String userId) throws Exception;
 	
 }

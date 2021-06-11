@@ -1,16 +1,19 @@
 package com.mobileshop.service;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.mobileshop.dto.OrderCartDto;
+import com.mobileshop.dto.ProductInCartDto;
 import com.mobileshop.mapper.BookMapper;
 import com.mobileshop.model.BookModel;
 import com.mobileshop.model.BookTableModel;
@@ -125,6 +128,27 @@ public class BookService {
 	}
 	public List<BookTableModel> searchBookTable(String condition) throws Exception {
 		return bookMapper.searchBookTable(condition);
+	}
+
+	public List<ProductInCartDto> getPurchasedProduct() throws Exception {
+		List<BookModel> bookModels = bookMapper.getByUserId(accountUtil.getUser().getUserId());
+		
+		List<ProductInCartDto> productInCartDtos = new ArrayList<>();
+		
+		for(BookModel bookModel : bookModels) {
+			ProductInCartDto productInCartDto = new ProductInCartDto();
+			
+			ProductModel productModel = productService.getProduct(bookModel.getProductId());
+			BeanUtils.copyProperties(productModel, productInCartDto);
+			
+			productInCartDto.setAmount(bookModel.getAmount());
+			productInCartDto.setPrice(bookModel.getPrice());
+			productInCartDto.setPrices(bookModel.getTotal());
+			
+			productInCartDtos.add(productInCartDto);
+		}
+		
+		return productInCartDtos;
 	}
 
 }

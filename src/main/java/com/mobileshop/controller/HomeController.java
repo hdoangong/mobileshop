@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.mobileshop.dto.ProductInCartDto;
 import com.mobileshop.model.ManufacturerModel;
 import com.mobileshop.model.ProductModel;
+import com.mobileshop.service.BookService;
 import com.mobileshop.service.CartService;
 import com.mobileshop.service.ManufacturerService;
 import com.mobileshop.service.ProductService;
@@ -27,13 +29,18 @@ public class HomeController {
 
 	@Autowired
 	UserService userService;
+	
 	@Autowired
 	ProductService productService;
 	
 	@Autowired
 	CartService cartService;
+	
 	@Autowired
 	ManufacturerService manufacturerService;
+	
+	@Autowired
+	BookService bookService;
 
 	@RequestMapping(value = "/")
 	public String home(ModelMap modelMap) throws IOException {
@@ -181,11 +188,16 @@ public class HomeController {
 		try {
 			List<ManufacturerModel> manufacturers = manufacturerService.getAll();
 			modelMap.addAttribute("manufacturers", manufacturers);
+			
+			List<ProductInCartDto> productInCartDtos = bookService.getPurchasedProduct();
+			
+			modelMap.put("productInCartDtos", productInCartDtos);
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return "home/purchaseOrder";
+		return "home/PurchaseOrder";
 	}
 	
 }
