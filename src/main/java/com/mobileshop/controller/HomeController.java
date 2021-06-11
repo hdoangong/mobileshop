@@ -177,7 +177,6 @@ public class HomeController {
 			List<ManufacturerModel> manufacturers = manufacturerService.getAll();
 			modelMap.addAttribute("manufacturers", manufacturers);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return "home/Cart";

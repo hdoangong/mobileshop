@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.mobileshop.dto.OrderDto;
 import com.mobileshop.dto.ProductInCartDto;
+import com.mobileshop.model.ManufacturerModel;
 import com.mobileshop.service.CartService;
+import com.mobileshop.service.ManufacturerService;
 
 @Controller
 @RequestMapping("/cart")
@@ -22,6 +24,9 @@ public class CartController {
 
 	@Autowired
 	CartService cartService;
+	
+	@Autowired
+	ManufacturerService manufacturerService;
 
 	@GetMapping
 	public String cart(ModelMap modelMap) throws IOException {
@@ -36,6 +41,9 @@ public class CartController {
 			}
 			
 			modelMap.put("sumPrices", sumPrices);
+			
+			List<ManufacturerModel> manufacturers = manufacturerService.getAll();
+			modelMap.addAttribute("manufacturers", manufacturers);
 		
 		} catch (Exception ex) {
 			ex.printStackTrace();
